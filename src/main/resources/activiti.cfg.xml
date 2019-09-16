@@ -20,16 +20,26 @@
 
 
 
+    <bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+        <!-- 连接数据的配置 -->
+        <property name="jdbcDriver" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test_activiti?useUnicode=true&amp;characterEncoding=utf8"></property>
+        <property name="jdbcUsername" value="root"></property>
+        <property name="jdbcPassword" value="root"></property>
+        <!-- 没有表创建表 -->
+        <property name="databaseSchemaUpdate" value="true"></property>
+    </bean>
 
+<!--
 <bean id="processEngineConfiguration"
       class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
     <property name="jdbcDriver" value="com.mysql.cj.jdbc.Driver" />
     <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test_activiti?useUnicode=true&amp;useSSL=false&amp;characterEncoding=utf8" />
     <property name="jdbcUsername" value="root" />
     <property name="jdbcPassword" value="root" />
-    <!--没有表创建表-->
+    &lt;!&ndash;没有表创建表&ndash;&gt;
     <property name="databaseSchemaUpdate" value="true"/>
-</bean>
+</bean>-->
 
 
 

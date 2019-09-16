@@ -3,11 +3,13 @@ package common;
 import com.mchange.io.FileUtils;
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngines;
+import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -20,9 +22,9 @@ public class Hello {
     /**
      * 部署流程定义
      */
-    @Test
+    @Test//方式一addClasspathResource
     public void deploymentProcessDefinition(){
-        Deployment deployment = processEngine.getRepositoryService()//与流程定义和部署对象相关的Service
+        Deployment deployment = (Deployment) processEngine.getRepositoryService()//与流程定义和部署对象相关的Service
         .createDeployment()//创建一个部署对象
         .name("helloworld入门程序")//添加部署的名称
         .addClasspathResource("diagrams/helloworld.bpmn")//从classpath的资源中加载，一次只能加载一个文件
@@ -66,7 +68,7 @@ public class Hello {
         if(list != null && list.size() > 0){
             for(Task task:list){
                 System.out.println("任务ID：" + task.getId());
-                System.out.println("任务名称：" + task.geName());
+                System.out.println("任务名称：" + task.getName());
                 System.out.println("任务的创建时间：" + task.getCreateTime());
                 System.out.println("任务的办理人：" + task.getAssignee());
                 System.out.println("流程实例ID：" + task.getProcessInstanceId());
@@ -86,7 +88,6 @@ public class Hello {
         processEngine.getTaskService()//与正在执行任务管理相关的service
             .complete(taskId);
         System.out.println("完成任务：任务ID"+ taskId);
-
     }
 
     /**
@@ -99,9 +100,9 @@ public class Hello {
         /**
          * 指定查询条件，where条件
          */
-        .deploymentId(deploymentId)//使用部署对象ID查询
-        .processDefinitionKey(processDefinitionKey)//使用流程定义的key查询
-        .processDefinitionNameLike(processDefinitionNameLike)//使用流程定义的名称模糊查询
+        .deploymentId("")//使用部署对象ID查询
+        .processDefinitionKey("")//使用流程定义的key查询
+        .processDefinitionNameLike("")//使用流程定义的名称模糊查询
 
         /**排序*/
         .orderByProcessDefinitionVersion().asc()//按照流程版本的升序排序
@@ -174,7 +175,7 @@ public class Hello {
         //将图片生成到D盘目录下
         File file = new File("D:/"+ resourceName);
         //将输入流的图片写到D盘下
-        FileUtils.copyInputStreamToFile(in,file);//?
+        //FileUtils.copyInputStreamToFile(in,file);//?
     }
 
     /**
@@ -220,7 +221,7 @@ public class Hello {
         //流程定义的key
         String processDefinitionKey = "helloworld";
         //先使用流程定义的key查询流程定义，查询所有的版本
-        processEngine.getRepositoryService()
+        List<ProcessDefinition> list = processEngine.getRepositoryService()
                 .createProcessDefinitionQuery()
                 .processDefinitionKey(processDefinitionKey)//使用流程定义的key查询
                 .list();

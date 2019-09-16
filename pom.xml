@@ -9,89 +9,56 @@
     <version>1.0-SNAPSHOT</version>
     <dependencies>
 
-        <dependency>
-
+ <!--       <dependency>
             <groupId>org.activiti</groupId>
-
             <artifactId>activiti-engine</artifactId>
-
             <version>5.22.0</version>
-
         </dependency>
 
         <dependency>
-
             <groupId>org.activiti</groupId>
-
             <artifactId>activiti-spring</artifactId>
-
             <version>5.22.0</version>
-
         </dependency>
 
         <dependency>
-
             <groupId>org.codehaus.groovy</groupId>
-
             <artifactId>groovy-all</artifactId>
-
             <version>2.4.3</version>
 
         </dependency>
 
-
-
         <dependency>
-
             <groupId>org.slf4j</groupId>
-
             <artifactId>slf4j-api</artifactId>
-
             <version>1.7.6</version>
-
         </dependency>
 
         <dependency>
-
             <groupId>org.slf4j</groupId>
-
             <artifactId>slf4j-jdk14</artifactId>
-
             <version>1.7.6</version>
-
         </dependency>
-
 
 
         <dependency>
-
             <groupId>junit</groupId>
-
             <artifactId>junit</artifactId>
-
             <version>4.11</version>
-
         </dependency>
 
-
-
-        <!-- postgresql数据库驱动包开始 根据数据库选择 -->
-
-<!--        <dependency>
-
+        &lt;!&ndash; postgresql数据库驱动包开始 根据数据库选择 &ndash;&gt;
+&lt;!&ndash;        <dependency>
             <groupId>org.postgresql</groupId>
-
             <artifactId>postgresql</artifactId>
-
             <version>9.3-1103-jdbc41</version>
+        </dependency>&ndash;&gt;
 
-        </dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>com.alibaba</groupId>-->
-            <!--<artifactId>druid</artifactId>-->
-            <!--<version>1.0.9</version>-->
-        <!--</dependency>-->
+        &lt;!&ndash;<dependency>&ndash;&gt;
+            &lt;!&ndash;<groupId>com.alibaba</groupId>&ndash;&gt;
+            &lt;!&ndash;<artifactId>druid</artifactId>&ndash;&gt;
+            &lt;!&ndash;<version>1.0.9</version>&ndash;&gt;
+        &lt;!&ndash;</dependency>&ndash;&gt;
 
         <dependency>
             <groupId>com.mchange</groupId>
@@ -103,7 +70,7 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
         </dependency>
-        <!-- postgresql数据库驱动包结束 -->
+        &lt;!&ndash; postgresql数据库驱动包结束 &ndash;&gt;
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -111,6 +78,39 @@
             <classifier>sources</classifier>
             <type>java-source</type>
         </dependency>
+    </dependencies>-->
+
+
+    <properties>
+        <activiti-version>5.11</activiti-version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-engine</artifactId>
+            <version>${activiti-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-spring</artifactId>
+            <version>${activiti-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.0.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.3.168</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.1</version>
+        </dependency>
     </dependencies>
+
 
 </project>
